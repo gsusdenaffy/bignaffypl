@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIG naffy pl - Ultimate Memes Destination</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #FF6B8B;
+            --secondary: #00D4FF;
+            --accent: #FFD166;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --success: #06D6A0;
+            --meme-bg: #16213E;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Neon glow effects */
+        .neon-text {
+            text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 15px var(--primary);
+        }
+        
+        .neon-border {
+            box-shadow: 0 0 10px var(--secondary), inset 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            color: var(--accent);
+            font-size: 2.5rem;
+            filter: drop-shadow(0 0 8px rgba(255, 209, 102, 0.7));
+        }
+        
+        .logo-text {
+            font-family: 'Comic Neue', cursive;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-top: -5px;
+            font-style: italic;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 16px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 107, 139, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(26, 26, 46, 0.7) 0%, rgba(26, 26, 46, 0) 70%);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #ccc;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 139, 0.6);
+        }
+        
+        /* Meme Gallery */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 3rem 0 2rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        .meme-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 2.5rem;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .meme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
+        }
+        
+        .meme-card {
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .meme-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--secondary);
+        }
+        
+        .meme-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .meme-info {
+            padding: 20px;
+        }
+        
+        .meme-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        .meme-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .meme-tag {
+            background: rgba(0, 212, 255, 0.2);
+            color: var(--secondary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .meme-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .meme-like {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 107, 139, 0.2);
+            color: var(--primary);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .meme-like:hover {
+            background: rgba(255, 107, 139, 0.4);
+        }
+        
+        .meme-like.liked {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
+        .meme-date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Post Meme Form */
+        .post-section {
+            background: rgba(26, 26, 46, 0.9);
+            margin: 4rem auto;
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 900px;
+            border: 2px solid rgba(255, 107, 139, 0.3);
+        }
+        
+        .post-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .form-input, .form-textarea {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            grid-column: 1 / -1;
+            background: linear-gradient(45deg, var(--secondary), var(--success));
+            color: var(--dark);
+            border: none;
+            padding: 18px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.4);
+        }
+        
+        /* Upload Preview */
+        .upload-preview {
+            width: 100%;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .preview-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Social Media Section */
+        .social-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(26, 26, 46, 0.8);
+            margin-top: 4rem;
+            border-top: 2px solid var(--primary);
+        }
+        
+        .social-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 3rem;
+        }
+        
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            width: 200px;
+            text-decoration: none;
+            color: var(--light);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 107, 139, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .social-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .facebook .social-icon {
+            color: #1877F2;
+        }
+        
+        .whatsapp .social-icon {
+            color: #25D366;
+        }
+        
+        .social-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .social-desc {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 20, 0.95);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 2px solid var(--secondary);
+        }
+        
+        .footer-logo {
+            font-family: 'Comic Neue', cursive;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-tagline {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+        
+        .copyright {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+        
+        /* Meme of the Day */
+        .meme-of-day {
+            background: linear-gradient(135deg, rgba(255, 107, 139, 0.1), rgba(0, 212, 255, 0.1));
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 900px;
+            text-align: center;
+            border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .meme-of-day:before {
+            content: "🔥 TRENDING";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 8px 40px;
+            transform: rotate(45deg);
+            font-weight: 800;
+            font-size: 0.9rem;
+        }
+        
+        .meme-of-day-title {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .meme-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .post-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .meme-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation for new memes */
+        @keyframes newMemePop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .new-meme {
+            animation: newMemePop 0.5s ease-out;
+        }
+        
+        /* Loading animation */
+        .loader {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .loader.active {
+            display: block;
+        }
+        
+        .spinner {
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-fire logo-icon"></i>
+                <div>
+                    <div class="logo-text">BIG naffy pl</div>
+                    <div class="tagline">Where Memes Come to Life!</div>
+                </div>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="#" class="nav-link active" data-section="home">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#" class="nav-link" data-section="memes">
+                    <i class="fas fa-images"></i> Memes
+                </a>
+                <a href="#" class="nav-link" data-section="post">
+                    <i class="fas fa-plus-circle"></i> Post Meme
+                </a>
+                <a href="#" class="nav-link" data-section="social">
+                    <i class="fas fa-share-alt"></i> Connect
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <h1 class="neon-text">Welcome to BIG naffy pl!</h1>
+            <p>The ultimate destination for hilarious, trending, and original memes. Laugh, share, and connect with meme lovers worldwide!</p>
+            <button class="cta-button" data-section="memes">
+                <i class="fas fa-laugh-beam"></i> EXPLORE MEMES
+            </button>
+        </div>
+        
+        <!-- Meme of the Day -->
+        <div class="meme-of-day container">
+            <h2 class="meme-of-day-title">🔥 MEME OF THE DAY</h2>
+            <div id="meme-of-day-content">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Trending Memes Preview -->
+        <h2 class="section-title">🔥 TRENDING NOW</h2>
+        <div class="meme-filters container">
+            <button class="filter-btn active" data-filter="all">All Memes</button>
+            <button class="filter-btn" data-filter="funny">Funny</button>
+            <button class="filter-btn" data-filter="animals">Animals</button>
+            <button class="filter-btn" data-filter="gaming">Gaming</button>
+            <button class="filter-btn" data-filter="relatable">Relatable</button>
+        </div>
+        
+        <div class="loader" id="memes-loader">
+            <div class="spinner"></div>
+            <p>Loading hilarious memes...</p>
+        </div>
+        
+        <div class="meme-grid container" id="trending-memes">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Memes Gallery Section -->
+    <section id="memes" class="section">
+        <div class="container">
+            <h2 class="section-title">📸 MEME GALLERY</h2>
+            <div class="meme-filters">
+                <button class="filter-btn active" data-filter="all">All Memes</button>
+                <button class="filter-btn" data-filter="funny">Funny</button>
+                <button class="filter-btn" data-filter="animals">Animals</button>
+                <button class="filter-btn" data-filter="gaming">Gaming</button>
+                <button class="filter-btn" data-filter="relatable">Relatable</button>
+                <button class="filter-btn" data-filter="recent">Recent</button>
+                <button class="filter-btn" data-filter="popular">Most Liked</button>
+            </div>
+            
+            <div class="meme-grid" id="all-memes">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Meme Section -->
+    <section id="post" class="section">
+        <div class="container">
+            <h2 class="section-title">🎨 POST YOUR MEME</h2>
+            <div class="post-section">
+                <form id="post-meme-form" class="post-form">
+                    <div class="form-group">
+                        <label class="form-label" for="meme-title">Meme Title *</label>
+                        <input type="text" id="meme-title" class="form-input" placeholder="Give your meme a catchy title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="meme-image">Image URL *</label>
+                        <input type="url" id="meme-image" class="form-input" placeholder="Paste your meme image URL" required>
+                        <div class="upload-preview" id="image-preview">
+                            <i class="fas fa-image" style="font-size: 3rem; color: #666;"></i>
+                        </div>
+                        <small style="color: #aaa; margin-top: 5px;">Upload your image to <a href="https://imgur.com" target="_blank" style="color: var(--secondary);">Imgur</a> or similar service and paste the link here</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="meme-tags">Tags *</label>
+                        <input type="text" id="meme-tags" class="form-input" placeholder="funny, animals, gaming, relatable, etc." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="meme-category">Category *</label>
+                        <select id="meme-category" class="form-input" required>
+                            <option value="">Select a category</option>
+                            <option value="funny">Funny</option>
+                            <option value="animals">Animals</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="relatable">Relatable</option>
+                            <option value="dark">Dark Humor</option>
+                            <option value="wholesome">Wholesome</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label class="form-label" for="meme-description">Description (Optional)</label>
+                        <textarea id="meme-description" class="form-textarea" placeholder="Add context or a funny caption..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-rocket"></i> LAUNCH YOUR MEME!
+                    </button>
+                </form>
+            </div>
+            
+            <div id="post-success" style="display: none; text-align: center; padding: 2rem; background: rgba(6, 214, 160, 0.1); border-radius: 15px; margin-top: 2rem;">
+                <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--success); margin-bottom: 1rem;"></i>
+                <h3 style="color: var(--success); font-size: 1.8rem;">Meme Posted Successfully!</h3>
+                <p>Your meme is now live on BIG naffy pl. Share it with your friends!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social" class="section">
+        <div class="social-section">
+            <h2 class="social-title">📱 CONNECT WITH ME</h2>
+            <p style="max-width: 800px; margin: 0 auto 3rem; font-size: 1.2rem;">Follow me on social media for daily memes, updates, and more hilarious content!</p>
+            
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank" class="social-link facebook">
+                    <i class="fab fa-facebook-square social-icon"></i>
+                    <div class="social-name">Facebook</div>
+                    <div class="social-desc">Follow for daily meme updates</div>
+                    <div style="background: #1877F2; color: white; padding: 8px 15px; border-radius: 20px; font-weight: 600; margin-top: 10px;">
+                        Visit Page
+                    </div>
+                </a>
+                
+                <a href="https://wa.me/254743658746" target="_blank" class="social-link whatsapp">
+                    <i class="fab fa-whatsapp social-icon"></i>
+                    <div class="social-name">WhatsApp</div>
+                    <div class="social-desc">Chat: +254 743 658 746</div>
+                    <div style="background: #25D366; color: white; padding: 8px 15px; border-radius: 20px; font-weight: 600; margin-top: 10px;">
+                        Send Message
+                    </div>
+                </a>
+            </div>
+            
+            <div style="max-width: 800px; margin: 3rem auto 0; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px;">
+                <h3 style="color: var(--accent); margin-bottom: 1rem;">Want Your Meme Featured?</h3>
+                <p>Send me your best memes on WhatsApp or Facebook Messenger! The funniest ones get featured on the homepage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">BIG naffy pl</div>
+            <div class="footer-tagline">Laughter is the best medicine. Share the dose! 💊</div>
+            
+            <div style="display: flex; justify-content: center; gap: 30px; margin: 2rem 0;">
+                <a href="#" data-section="home" style="color: var(--light); text-decoration: none;">Home</a>
+                <a href="#" data-section="memes" style="color: var(--light); text-decoration: none;">Memes</a>
+                <a href="#" data-section="post" style="color: var(--light); text-decoration: none;">Post Meme</a>
+                <a href="#" data-section="social" style="color: var(--light); text-decoration: none;">Connect</a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 BIG naffy pl. All rights reserved. | Made with <i class="fas fa-heart" style="color: var(--primary);"></i> for meme lovers worldwide
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample meme data
+        const initialMemes = [
+            {
+                id: 1,
+                title: "When you finally fix the bug",
+                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                tags: ["programming", "coding", "funny"],
+                category: "funny",
+                description: "That feeling when your code finally works after 5 hours of debugging",
+                likes: 42,
+                date: "2023-10-15",
+                featured: true
+            },
+            {
+                id: 2,
+                title: "Cat Monday Mood",
+                image: "https://images.unsplash.com/photo-1514888286974-6d03bde4ba48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                tags: ["cats", "monday", "relatable"],
+                category: "animals",
+                description: "Every Monday morning be like...",
+                likes: 38,
+                date: "2023-10-14",
+                featured: true
+            },
+            {
+                id: 3,
+                title: "Gamer Life",
+                image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                tags: ["gaming", "playstation", "funny"],
+                category: "gaming",
+                description: "When you promise just one more game at 1 AM",
+                likes: 56,
+                date: "2023-10-13",
+                featured: true
+            },
+            {
+                id: 4,
+                title: "Coffee Addiction",
+                image: "https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                tags: ["coffee", "morning", "relatable"],
+                category: "relatable",
+                description: "Me before my first coffee vs after",
+                likes: 29,
+                date: "2023-10-12"
+            },
+            {
+                id: 5,
+                title: "Dog vs Squirrel",
+                image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                tags: ["dogs", "animals", "funny"],
+                category: "animals",
+                description: "The eternal battle continues",
+                likes: 47,
+                date: "2023-10-11"
+            },
+            {
+                id: 6,
+                title: "Weekend Plans",
+                image: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                tags: ["weekend", "plans", "relatable"],
+                category: "relatable",
+                description: "My elaborate weekend plans vs reality",
+                likes: 33,
+                date: "2023-10-10"
+            }
+        ];
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize memes in localStorage
+            if (!localStorage.getItem('bigNaffyMemes')) {
+                localStorage.setItem('bigNaffyMemes', JSON.stringify(initialMemes));
+            }
+            
+            // Navigation
+            setupNavigation();
+            
+            // Setup meme filters
+            setupFilters();
+            
+            // Load memes
+            loadMemes();
+            
+            // Setup meme of the day
+            setupMemeOfTheDay();
+            
+            // Setup post meme form
+            setupPostForm();
+            
+            // Setup image preview
+            setupImagePreview();
+        });
+        
+        // Navigation
+        function setupNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link, .cta-button');
+            const sections = document.querySelectorAll('.section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get section to show
+                    const sectionId = this.getAttribute('data-section');
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    
+                    if (this.classList.contains('nav-link')) {
+                        this.classList.add('active');
+                    } else {
+                        // If CTA button was clicked, activate the memes nav link
+                        document.querySelector(`.nav-link[data-section="${sectionId}"]`).classList.add('active');
+                    }
+                    
+                    // Show the selected section
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === sectionId) {
+                            section.classList.add('active');
+                        }
+                    });
+                    
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        }
+        
+        // Get all memes from localStorage
+        function getAllMemes() {
+            return JSON.parse(localStorage.getItem('bigNaffyMemes')) || [];
+        }
+        
+        // Save memes to localStorage
+        function saveMemes(memes) {
+            localStorage.setItem('bigNaffyMemes', JSON.stringify(memes));
+        }
+        
+        // Load and display memes
+        function loadMemes() {
+            const memes = getAllMemes();
+            
+            // Display trending memes (featured ones)
+            const trendingMemesContainer = document.getElementById('trending-memes');
+            const allMemesContainer = document.getElementById('all-memes');
+            
+            const trendingMemes = memes.filter(meme => meme.featured).slice(0, 6);
+            displayMemeGrid(trendingMemes, trendingMemesContainer);
+            displayMemeGrid(memes, allMemesContainer);
+        }
+        
+        // Display memes in grid
+        function displayMemeGrid(memes, container) {
+            if (memes.length === 0) {
+                container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; font-size: 1.3rem; color: #aaa;">No memes found. Be the first to post one!</div>';
+                return;
+            }
+            
+            container.innerHTML = memes.map(meme => `
+                <div class="meme-card" data-category="${meme.category}">
+                    <img src="${meme.image}" alt="${meme.title}" class="meme-img">
+                    <div class="meme-info">
+                        <h3 class="meme-title">${meme.title}</h3>
+                        <div class="meme-tags">
+                            ${meme.tags.map(tag => `<span class="meme-tag">${tag}</span>`).join('')}
+                        </div>
+                        <p>${meme.description || ''}</p>
+                        <div class="meme-actions">
+                            <button class="meme-like ${localStorage.getItem(`liked_${meme.id}`) ? 'liked' : ''}" data-id="${meme.id}">
+                                <i class="fas fa-heart"></i>
+                                <span class="like-count">${meme.likes}</span>
+                            </button>
+                            <div class="meme-date">${formatDate(meme.date)}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Add like functionality
+            document.querySelectorAll('.meme-like').forEach(button => {
+                button.addEventListener('click', function() {
+                    const memeId = parseInt(this.getAttribute('data-id'));
+                    const likeCountEl = this.querySelector('.like-count');
+                    const isLiked = this.classList.contains('liked');
+                    const memes = getAllMemes();
+                    
+                    const memeIndex = memes.findIndex(m => m.id === memeId);
+                    if (memeIndex !== -1) {
+                        if (isLiked) {
+                            memes[memeIndex].likes--;
+                            this.classList.remove('liked');
+                            localStorage.removeItem(`liked_${memeId}`);
+                        } else {
+                            memes[memeIndex].likes++;
+                            this.classList.add('liked');
+                            localStorage.setItem(`liked_${memeId}`, 'true');
+                        }
+                        
+                        likeCountEl.textContent = memes[memeIndex].likes;
+                        saveMemes(memes);
+                    }
+                });
+            });
+        }
+        
+        // Setup meme filters
+        function setupFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    const memes = getAllMemes();
+                    let filteredMemes = [...memes];
+                    
+                    // Apply filters
+                    if (filter !== 'all') {
+                        if (filter === 'popular') {
+                            filteredMemes.sort((a, b) => b.likes - a.likes);
+                        } else if (filter === 'recent') {
+                            filteredMemes.sort((a, b) => new Date(b.date) - new Date(a.date));
+                        } else {
+                            filteredMemes = memes.filter(meme => 
+                                meme.category === filter || 
+                                meme.tags.includes(filter)
+                            );
+                        }
+                    }
+                    
+                    // Display filtered memes
+                    const allMemesContainer = document.getElementById('all-memes');
+                    displayMemeGrid(filteredMemes, allMemesContainer);
+                });
+            });
+        }
+        
+        // Setup meme of the day
+        function setupMemeOfTheDay() {
+            const memes = getAllMemes();
+            // Select a random featured meme for meme of the day
+            const featuredMemes = memes.filter(meme => meme.featured);
+            const memeOfDay = featuredMemes[Math.floor(Math.random() * featuredMemes.length)];
+            
+            if (memeOfDay) {
+                document.getElementById('meme-of-day-content').innerHTML = `
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">${memeOfDay.title}</h3>
+                    <img src="${memeOfDay.image}" alt="${memeOfDay.title}" style="max-width: 100%; max-height: 400px; border-radius: 15px; margin-bottom: 1rem;">
+                    <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">${memeOfDay.description}</p>
+                `;
+            }
+        }
+        
+        // Setup post meme form
+        function setupPostForm() {
+            const form = document.getElementById('post-meme-form');
+            const successMessage = document.getElementById('post-success');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const title = document.getElementById('meme-title').value.trim();
+                const image = document.getElementById('meme-image').value.trim();
+                const tags = document.getElementById('meme-tags').value.trim();
+                const category = document.getElementById('meme-category').value;
+                const description = document.getElementById('meme-description').value.trim();
+                
+                // Validate
+                if (!title || !image || !tags || !category) {
+                    alert('Please fill in all required fields!');
+                    return;
+                }
+                
+                // Process tags
+                const tagsArray = tags.split(',').map(tag => tag.trim()).filter(tag => tag);
+                
+                // Create new meme
+                const newMeme = {
+                    id: Date.now(),
+                    title,
+                    image,
+                    tags: tagsArray,
+                    category,
+                    description,
+                    likes: 0,
+                    date: new Date().toISOString().split('T')[0],
+                    featured: Math.random() > 0.7 // 30% chance to be featured
+                };
+                
+                // Save meme
+                const memes = getAllMemes();
+                memes.unshift(newMeme);
+                saveMemes(memes);
+                
+                // Show success message
+                form.reset();
+                document.getElementById('image-preview').innerHTML = '<i class="fas fa-image" style="font-size: 3rem; color: #666;"></i>';
+                successMessage.style.display = 'block';
+                
+                // Update meme displays
+                loadMemes();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+                
+                // Switch to memes section
+                document.querySelector('.nav-link[data-section="memes"]').click();
+            });
+        }
+        
+        // Setup image preview
+        function setupImagePreview() {
+            const imageInput = document.getElementById('meme-image');
+            const preview = document.getElementById('image-preview');
+            
+            imageInput.addEventListener('input', function() {
+                const url = this.value.trim();
+                
+                if (url) {
+                    preview.innerHTML = `<img src="${url}" class="preview-img" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-exclamation-triangle\' style=\'font-size: 3rem; color: #ff6b6b;\'></i><p style=\'margin-top: 10px;\'>Invalid image URL</p>';" />`;
+                } else {
+                    preview.innerHTML = '<i class="fas fa-image" style="font-size: 3rem; color: #666;"></i>';
+                }
+            });
+        }
+        
+        // Format date
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+        
+        // Easter egg - fun console message
+        console.log("%c🔥 Welcome to BIG naffy pl! 🔥", "color: #FF6B8B; font-size: 20px; font-weight: bold;");
+        console.log("%cGet ready for the dankest memes on the internet! 🚀", "color: #00D4FF; font-size: 16px;");
+    </script>
+</body>
+</html>
