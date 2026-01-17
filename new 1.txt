@@ -1,0 +1,13 @@
+=== CONSENT-BASED PHONE PRANK ===
+From: [Your Name]
+
+To activate this 3-message prank:
+
+1. Open Chrome on your phone
+2. Copy and paste this into the address bar:
+   javascript:for(let i=1;i<=3;i++){setTimeout(()=>{alert("Message "+i+" of 3 from [Your Name]!")},i*1000);}
+
+3. Tap 'Go'
+4. You'll get 3 alert messages, 1 second apart!
+
+Note: This only works because you consented! 😊
